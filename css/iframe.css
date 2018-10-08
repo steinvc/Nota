@@ -1,0 +1,42 @@
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+} 
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 3.5px;
+}
+::selection {
+	background: rgba(0,0,0,0.08);
+}
+.content {
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	overflow-y: auto;
+	background-color: transparent;
+}
+hr.page-break {
+	background-color: transparent;
+	height: 0;
+	-webkit-margin-before: 3em;
+	-webkit-margin-after: 3em;
+	border-top: 3px dashed #CCC;
+}
+@media print{
+	.content {
+		position: static;
+		padding: 0;
+	}
+	hr.page-break	{ 
+		height: 0;
+		border: none; 
+		margin: 0;
+		page-break-before: always; 
+	}
+}
+* {
+	word-wrap:break-word;
+}

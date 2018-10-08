@@ -1,0 +1,385 @@
+@font-face {
+  font-family: 'Liberation';
+  font-style: normal;
+  font-weight: 400;
+  src: local('liberation-regular'), local('liberation-regular'), url(../res/fonts/liberation-regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Liberation';
+  font-style: normal;
+  font-weight: 700;
+  src: local('liberation-bold'), local('liberation-bold'), url(../res/fonts/liberation-bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Liberation';
+  font-style: italic;
+  font-weight: 400;
+  src: local('liberation-italic'), local('liberation-italic'), url(../res/fonts/liberation-italic.woff) format('woff');
+}
+@font-face {
+  font-family: 'Liberation';
+  font-style: italic;
+  font-weight: 700;
+  src: local('liberation-bold-italic'), local('liberation-bold-italic'), url(../res/fonts/liberation-bold-italic.woff) format('woff');
+}
+@font-face {
+  font-family: 'Luxim';
+  font-style: normal;
+  font-weight: 400;
+  src: local('luximr'), local('luximr'), url(../res/fonts/luximr.woff) format('woff');
+}
+@font-face {
+  font-family: 'Luxim';
+  font-style: normal;
+  font-weight: 700;
+  src: local('luximb'), local('luximb'), url(../res/fonts/luximb.woff) format('woff');
+}
+@font-face {
+  font-family: 'Luxim';
+  font-style: italic;
+  font-weight: 400;
+  src: local('luximri'), local('luximri'), url(../res/fonts/luximri.woff) format('woff');
+}
+@font-face {
+  font-family: 'Luxim';
+  font-style: italic;
+  font-weight: 700;
+  src: local('luximbi'), local('luximbi'), url(../res/fonts/luximbi.woff) format('woff');
+}
+* {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+}
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+} 
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 3.5px;
+}
+html {
+	background-color: #F3F3F3;
+}
+body {
+	background-color: white;
+	display: none;
+}
+
+.CodeMirror {
+	font-family: 'Liberation';
+	font-size: 15px;
+	position: fixed;
+	width: 50%;
+	right: 50%;
+	top: 40px;
+	bottom: 0;
+	height: calc(100% - 40px);
+	background: -webkit-linear-gradient(top, #efefef 0%, #f3f3f3 100%);
+	color: #414141;
+	line-height: 1.6;
+}
+.CodeMirror button {
+	font-size: 12px;
+	background-color: #AAA;
+	color: #444;
+	border-radius: 2px;
+	padding: 0 4px;
+}
+.output {
+	position: fixed;
+	width: 50%;
+	left: 50%;
+	right: 0;
+	top: 40px;
+	bottom: 0;
+	height: calc(100% - 40px);
+	overflow-y: auto;
+}
+.markdown {
+	height: 22px;
+	width: 22px;
+	background-image: url('../res/select.svg');
+	opacity: 0.4;
+	position: fixed;
+	bottom: 14px;
+	left: calc(50% - 42px);
+}
+.html {
+	height: 22px;
+	width: 22px;
+	background-image: url('../res/select.svg');
+	opacity: 0.2;
+	position: fixed;
+	bottom: 14px;
+	right: 20px;
+}
+.toolbar {
+	position: fixed;
+	height: 40px;
+	box-sizing: border-box;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: -webkit-linear-gradient(top, #fff 0%, #fafafa 100%);
+	cursor: default;
+	border-bottom: 1px solid #CCC;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+}
+.menu {
+	position: relative;
+	float: left;
+	margin-left: 8px;
+}
+.menu button {
+	display: block;
+	float: left;
+	position: relative;
+	font-weight: normal;
+	padding: 12px 10px 13px 10px;
+	color: #AAA;
+	font-size: 9pt;
+	font-family: Segoe UI, sans-serif;
+	background-color: transparent;
+}
+.quick_menu {
+	position: relative;
+	margin-left: 8px;
+	text-align: right;
+	float: right;
+	margin-right: 4px;
+	margin-top: 11px;
+}
+.quick_menu img {
+	display: inline-block;
+	margin-right: 8px;
+	color: #AAA;
+	height: 16px;
+}
+.quick_menu img:active {
+	opacity: 0.7;
+}
+.dropdown {
+	position: fixed;
+	background: -webkit-linear-gradient(top, #fafafa 0%, #fff 100%);
+	top: 39px;
+	box-sizing: border-box;
+	padding: 0 0 6px 0;
+	border-radius: 0 0 2px 2px;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.file_dropdown {	
+	left: 8px;
+	display: none;
+	width: 205px;
+}
+.edit_dropdown {	
+	left: 46px;
+	display: none;
+	width: 245px;
+}
+.options_dropdown {
+	left: 86px;
+	width: 255px;
+	display: none;
+}
+.dropdown hr {
+	height: 1px;
+	background-color: #EEE;
+	margin: 6px 12px 6px 12px;
+}
+.dropdown button {
+	width: 100%;
+	text-align: left;
+	box-sizing: border-box;
+	padding: 6px 12px 6px 12px;
+	background-color: transparent;
+	color: #888;
+	font-size: 9pt;
+	font-family: Segoe UI, sans-serif;
+}
+.dropdown button:hover {
+	background-color: #EEE;
+}
+.dropdown span {
+	display: block;
+	float: right;
+	color: #b9b9b9;
+}
+.snippets {
+	position: fixed;
+	background-color: white;
+	height: 300px;
+	width: 400px;
+	top: calc(50% - 150px);
+	left: calc(50% - 200px);
+	box-sizing: border-box;
+	padding: 25px 30px 25px 30px;
+	border-radius: 2px;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+	border: 1px solid #CCC;
+	line-height: 30px;
+	display: block;
+	z-index: 11;
+}
+.snippet_scroll, .theme_scroll {	
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+}
+.snippet {
+	background-color: #AAA;
+	color: #FFF;
+	display: inline-block;
+	border-radius: 2px;
+	padding: 6px 12px 6px 8px;
+	font-size: 9pt;
+	font-family: Segoe UI, sans-serif;
+	line-height: 1;
+	margin-right: 8px;
+}
+.snippet:active {
+	background-color: #888;
+}
+.note {
+	position: fixed;
+	background-color: #FFF;
+	color: #888;
+	padding: 3px 8px 4px 8px;
+	border-radius: 0 2px 0 0;
+	left: 0;
+	bottom: 0;
+	font-size: 9pt;
+	font-family: Segoe UI, sans-serif;
+	z-index: 12;
+}
+.snippet:before {
+	display: inline-block; 
+	content: '•';
+	margin-right: 8px;
+	font-size: 12px;
+	line-height: 9pt;
+	color: white;
+}
+.theme_picker {
+	position: fixed;
+	background-color: white;
+	height: 200px;
+	width: 120px;
+	top: calc(50% - 100px);
+	left: calc(50% - 60px);
+	box-sizing: border-box;
+	padding: 4px 0 4px 0;
+	border-radius: 2px;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+	border: 1px solid #CCC;
+	line-height: 30px;
+	display: block;
+}
+.theme_picker .theme {
+	width: 100%;
+	text-align: left;
+	box-sizing: border-box;
+	padding: 6px 12px 6px 12px;
+	background-color: white;
+	color: #888;
+	font-size: 9pt;
+	font-family: Segoe UI, sans-serif;
+}
+.theme_picker .theme:hover {
+	background-color: #F5F5F5;
+}
+.edit_toolbar {
+	position: fixed;
+	top: 10px;
+	left: calc(50% - 246.5px);
+	background-color: #FFF;
+	font-family: Tahoma, sans-serif;
+	cursor: default;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+	border: 1px solid #CCC;
+	border-radius: 2px;
+	line-height: 0;
+	padding: 8px;
+	letter-spacing: 5px;
+	z-index: 10;
+}
+.edit_toolbar button {
+	height: 16px;
+	width: 16px;
+	background-color: transparent;
+	background-size: contain;
+	display: inline-block;
+}
+.edit_toolbar button:active {
+	opacity: 0.7;
+}
+.edit_bold {
+	background-image: url(../res/toolbar/bold.svg);
+}
+.edit_italics {
+	background-image: url(../res/toolbar/italic.svg);
+}
+.edit_strikethrough {
+	background-image: url(../res/toolbar/strikethrough.svg);
+}
+.edit_close {
+	background-image: url(../res/toolbar/close.svg);
+}
+.edit_cut {
+	background-image: url(../res/toolbar/cut.svg);
+}
+.edit_copy {
+	background-image: url(../res/toolbar/copy.svg);
+}
+.edit_paste {
+	background-image: url(../res/toolbar/paste.svg);
+}
+.edit_code {
+	background-image: url(../res/toolbar/code.svg);
+}
+.edit_sup {
+	background-image: url(../res/toolbar/sup.svg);
+}
+.edit_sub {
+	background-image: url(../res/toolbar/sub.svg);
+}
+.edit_image {
+	background-image: url(../res/toolbar/image.svg);
+}
+.edit_link {
+	background-image: url(../res/toolbar/link.svg);
+}
+.edit_ul {
+	background-image: url(../res/toolbar/ul.svg);
+}
+.edit_ol {
+	background-image: url(../res/toolbar/ol.svg);
+}
+.edit_blockquote {
+	background-image: url(../res/toolbar/blockquote.svg);
+}
+.edit_toolbar hr {
+	width: 1px;
+	background-color: #DDD;
+	height: 16px;
+	display: inline-block;
+	margin: 0 4px 0 4px;
+}
+.CodeMirror-scroll {
+	padding-left: calc(50% - 400px);
+	padding-right: calc(50% - 400px);
+	margin-right: 0px !important;
+}
+.CodeMirror-scroll::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+} 
